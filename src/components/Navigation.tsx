@@ -27,7 +27,7 @@ const Navigation = () => {
   };
   return (
     <aside
-      className={`bg-green-950 flex flex-col px-3 py-3 justify-between ${
+      className={`bg-indigo-950/70 flex flex-col px-3 py-3 justify-between ${
         isOpen ? "w-64" : "w-16"
       } max-w-[30%] shadow-md transition-all duration-300`}
     >
@@ -50,7 +50,7 @@ const Navigation = () => {
         ))}
       </div>
       <div
-        className="flex items-center gap-3 hover:text-green-100"
+        className="flex items-center gap-3 hover:text-indigo-100"
         onClick={handleLogout}
       >
         <span className="text-xl flex-shrink-0">🥺</span>

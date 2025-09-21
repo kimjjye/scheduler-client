@@ -23,12 +23,12 @@ const SignIn = () => {
 
   return (
     <>
-      <main className="grid h-full place-items-center bg-green-200 px-6 py-24 sm:py-32 lg:px-8 dark:bg-green-900">
+      <main className="grid h-full place-items-center bg-indigo-300 px-6 py-24 sm:py-32 lg:px-8">
         <div className="text-center">
-          <h1 className="mt-4 text-5xl font-semibold tracking-tight text-balance sm:text-7xl">
+          <h1 className="mt-4 text-5xl font-semibold tracking-tight text-balance text-indigo-900 sm:text-7xl">
             FORHA_
           </h1>
-          <div className="shadow-md rounded py-5 bg-green-100/50 hover:bg-green-100/70 mt-10 flex flex-col items-center justify-center gap-y-6 dark:bg-green-950/50 hover:bg-green-950/70">
+          <div className="shadow-md rounded py-5 bg-indigo-100/50 hover:bg-indigo-100/70 mt-10 flex flex-col items-center justify-center gap-y-6">
             <h2 className="font-semibold">Sign In</h2>
             <div>
               <img onClick={handleSignIn} className="google-sign-in-btn" />

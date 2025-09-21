@@ -5,7 +5,7 @@ import DashBoard from "./pages/DashBoard";
 import NotFound from "./pages/NotFound";
 import SignIn from "./pages/SignIn";
 import Welcome from "./pages/Welcome";
-import StudentsPage from "./pages/StudentsPage";
+import StudentsPage from "./pages/student/StudentsPage";
 
 const router = createBrowserRouter([
   {

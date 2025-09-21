@@ -3,26 +3,27 @@ import React, { type ButtonHTMLAttributes, type ReactNode } from "react";
 type ButtonVariant = "primary" | "secondary" | "danger";
 type ButtonSize = "sm" | "md" | "lg";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface TheButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   children: ReactNode;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const TheButton: React.FC<TheButtonProps> = ({
   variant = "primary",
   size = "md",
   className = "",
   children,
   ...props
 }) => {
-  const baseStyle = "rounded font-semibold focus:outline-none transition";
+  const baseStyle =
+    "rounded-[8px] py-[.5rem] px-[1rem] font-semibold gap-[4px] cursor-pointer items-center inline-flex focus:outline-none transition";
 
   const variantStyle =
     variant === "primary"
-      ? "bg-green-500 text-white hover:bg-green-600"
+      ? "bg-indigo-800/80 text-white hover:bg-indigo-800 "
       : variant === "secondary"
-      ? "bg-green-300 text-green-800 hover:bg-green-400"
+      ? "bg-indigo-300 text-indigo-800 hover:bg-indigo-400"
       : "bg-red-500 text-white hover:bg-red-600";
 
   const sizeStyle =

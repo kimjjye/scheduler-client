@@ -4,7 +4,7 @@ import TheFooter from "@/components/TheFooter";
 
 const DefaultLayout = () => {
   return (
-    <div className="size-full bg-green-900 flex dark:text-white ">
+    <div className="size-full bg-indigo-200/70 flex ">
       <Navigation />
       <div className="flex flex-col px-10 py-5 gap-5 flex-1 w-full p-6 overflow-auto">
         <Outlet />
@@ -17,7 +17,7 @@ const DefaultLayout = () => {
 
 const EmptyLayout = () => {
   return (
-    <main className="text-green-950 dark:text-white size-full">
+    <main className="text-indigo-950 size-full">
       <Outlet />
       <ScrollRestoration />
     </main>

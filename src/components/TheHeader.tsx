@@ -3,7 +3,7 @@ export interface HeaderProps {
   actions?: React.ReactNode;
 }
 
-export const TheHeader = ({ title = "", actions }: HeaderProps) => {
+const TheHeader = ({ title = "", actions }: HeaderProps) => {
   return (
     <header className="flex flex-row justify-between">
       <div className="">
@@ -13,3 +13,5 @@ export const TheHeader = ({ title = "", actions }: HeaderProps) => {
     </header>
   );
 };
+
+export default TheHeader;
