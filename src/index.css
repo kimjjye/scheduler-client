@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root {
+  --color-black-bean-50: #f2f7f3;
+  --color-black-bean-100: #dfecdf;
+  --color-black-bean-200: #c1d9c2;
+  --color-black-bean-300: #97be9c;
+  --color-black-bean-400: #6a9d71;
+  --color-black-bean-500: #498053;
+  --color-black-bean-600: #36653f;
+  --color-black-bean-700: #2b5133;
+  --color-black-bean-800: #24412b;
+  --color-black-bean-900: #1e3623;
+  --color-black-bean-950: #122116;
+}

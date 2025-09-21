@@ -2,7 +2,7 @@ import supabase from "@/utils/supabase";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Welcome() {
+const Welcome = () => {
   const [loading, setLoading] = useState(true);
 
   const [userName, setUserName] = useState("");
@@ -70,4 +70,6 @@ export default function Welcome() {
   }
 
   return <>{userName.length > 0 && <h1>환영해요 {userName}님 🎉</h1>}</>;
-}
+};
+
+export default Welcome;

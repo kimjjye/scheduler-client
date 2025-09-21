@@ -1,3 +1,5 @@
-export default function TheFooter() {
-  return <>footer</>;
-}
+const TheFooter = () => {
+  return <footer>footer</footer>;
+};
+
+export default TheFooter;

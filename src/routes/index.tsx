@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import DashBoard from "./pages/DashBoard";
-import SignIn from "./pages/SignIn";
-import NotFound from "./pages/NotFound";
-import DefaultLayout from "./layouts/DefaultLayout";
+import { DefaultLayout, EmptyLayout } from "./layouts/Layout";
 import { checkAuth } from "./loaders/requiresAuth";
-import EmptyLayout from "./layouts/EmptyLayout";
+import DashBoard from "./pages/DashBoard";
+import NotFound from "./pages/NotFound";
+import SignIn from "./pages/SignIn";
 import Welcome from "./pages/Welcome";
+import StudentsPage from "./pages/StudentsPage";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <DashBoard />,
+      },
+      {
+        path: "/students",
+        element: <StudentsPage />,
       },
     ],
   },
