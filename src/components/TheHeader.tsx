@@ -7,7 +7,7 @@ const TheHeader = ({ title = "", actions }: HeaderProps) => {
   return (
     <header className="flex flex-row justify-between">
       <div className="">
-        <h1>{title}</h1>
+        <h1 className="font-semibold text-2xl">{title}</h1>
       </div>
       <div>{actions}</div>
     </header>

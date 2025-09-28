@@ -1,10 +1,9 @@
 import { redirect } from "react-router-dom";
-import supabase from "@/utils/supabase";
+import useAuthStore from "@/store/auth";
 
 export async function checkAuth({ request }: { request: Request }) {
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+  const session = useAuthStore.getState().session;
+  const userRoles = useAuthStore.getState().role;
 
   const url = new URL(request.url);
   const pathname = url.pathname + url.search;
@@ -23,6 +22,14 @@ export async function checkAuth({ request }: { request: Request }) {
   // 로그인 안 된 상태인데 /signin 외의 페이지 접근 → signin으로 리다이렉트
   if (!session && !pathname.startsWith("/signin")) {
     return redirect(`/signin?redirectTo=${encodeURIComponent(pathname)}`);
+  }
+
+  // 권한 없는 사용자 → 권한 신청 페이지로 리다이렉트
+  console.log(userRoles);
+  if (userRoles === "student" && pathname !== "/apply-role") {
+    return redirect("/apply-role");
+  } else if (userRoles === "instructor" && pathname === "/apply-role") {
+    return redirect("/");
   }
 
   // 로그인 안 된 상태에서 /signin 접근 → 그대로 진행

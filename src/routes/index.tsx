@@ -6,6 +6,8 @@ import NotFound from "./pages/NotFound";
 import SignIn from "./pages/SignIn";
 import Welcome from "./pages/Welcome";
 import StudentsPage from "./pages/student/StudentsPage";
+import ApplyRole from "./pages/ApplyRole";
+import { AuthProvider } from "@/components/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,16 @@ const router = createBrowserRouter([
       {
         path: "/students",
         element: <StudentsPage />,
+      },
+    ],
+  },
+  {
+    element: <DefaultLayout />,
+    loader: checkAuth,
+    children: [
+      {
+        path: "/apply-role",
+        element: <ApplyRole />,
       },
     ],
   },
@@ -48,5 +60,9 @@ const router = createBrowserRouter([
 ]);
 
 export default function Router() {
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 }

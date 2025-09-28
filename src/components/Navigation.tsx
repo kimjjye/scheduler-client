@@ -1,30 +1,28 @@
-import supabase from "@/utils/supabase";
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import useAuthStore from "./../store/auth";
 
-const navigations = [
-  { to: "/", label: "DashBoard", icon: "🏠" },
-  { to: "/students", label: "수강생 관리", icon: "👨‍🎓" },
-];
+type Role = "instructor" | "student";
+
+const allNavigations = {
+  instructor: [
+    { to: "/", label: "DashBoard", icon: "🏠" },
+    { to: "/students", label: "수강생 관리", icon: "👨‍🎓" },
+  ],
+  student: [{ to: "/apply-role", label: "권한 신청", icon: "📝" }],
+};
 
 const Navigation = () => {
-  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(true);
+  const logout = useAuthStore((state) => state.logout);
+  const role = useAuthStore((state) => state.role);
+  const navigations = allNavigations[role as Role] || [];
 
   const handleLogout = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const { error } = await supabase.auth.signOut();
-
-      if (error) {
-        alert("로그아웃 실패");
-        return;
-      }
-      navigate("/signin");
-    } catch (error) {
-      console.error(error);
-    }
+    logout();
   };
+
   return (
     <aside
       className={`bg-indigo-950/70 flex flex-col px-3 py-3 justify-between ${
@@ -50,7 +48,7 @@ const Navigation = () => {
         ))}
       </div>
       <div
-        className="flex items-center gap-3 hover:text-indigo-100"
+        className="flex items-center gap-3 hover:text-indigo-100 cursor-pointer"
         onClick={handleLogout}
       >
         <span className="text-xl flex-shrink-0">🥺</span>
