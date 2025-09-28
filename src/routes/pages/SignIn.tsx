@@ -4,11 +4,12 @@ import googleIcon from "@/assets/icons/web_light_sq_SI.svg";
 const SignIn = () => {
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
+    const apiDomain = import.meta.env.VITE_API_DOMAIN;
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: "http://localhost:5173/welcome?from=signin",
+          redirectTo: `${apiDomain}/welcome?from=signin`,
         },
       });
 
