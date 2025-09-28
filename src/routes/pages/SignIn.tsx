@@ -1,5 +1,5 @@
 import supabase from "@/utils/supabase";
-import "@/assets/style/common.css";
+import googleIcon from "@/assets/icons/web_light_sq_SI.svg";
 
 const SignIn = () => {
   const handleSignIn = async (e: React.FormEvent) => {
@@ -31,7 +31,12 @@ const SignIn = () => {
           <div className="shadow-md rounded py-5 bg-indigo-100/50 hover:bg-indigo-100/70 mt-10 flex flex-col items-center justify-center gap-y-6">
             <h2 className="font-semibold">Sign In</h2>
             <div>
-              <img onClick={handleSignIn} className="google-sign-in-btn" />
+              <img
+                onClick={handleSignIn}
+                src={googleIcon}
+                className="google-sign-in-btn"
+                alt="goggle-login-btn"
+              />
             </div>
           </div>
         </div>
