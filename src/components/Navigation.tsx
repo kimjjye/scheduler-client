@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import useAuthStore from "./../store/auth";
+import { Dumbbell, GraduationCap, LayoutDashboard, LogOut } from "lucide-react";
 
 type Role = "instructor" | "student";
 
 const allNavigations = {
   instructor: [
-    { to: "/", label: "DashBoard", icon: "🏠" },
-    { to: "/students", label: "수강생 관리", icon: "👨‍🎓" },
+    { to: "/", label: "DashBoard", icon: <LayoutDashboard /> },
+    { to: "/students", label: "수강생 관리", icon: <GraduationCap /> },
+    { to: "/courses", label: "강의 관리", icon: <Dumbbell /> },
   ],
   student: [{ to: "/apply-role", label: "권한 신청", icon: "📝" }],
 };
@@ -51,7 +53,9 @@ const Navigation = () => {
         className="flex items-center gap-3 hover:text-indigo-100 cursor-pointer"
         onClick={handleLogout}
       >
-        <span className="text-xl flex-shrink-0">🥺</span>
+        <span className="text-xl flex-shrink-0">
+          <LogOut />
+        </span>
         <div className="overflow-hidden min-w-[0] flex-1">
           <span
             className={`inline-block transition-transform transition-opacity duration-200 whitespace-nowrap

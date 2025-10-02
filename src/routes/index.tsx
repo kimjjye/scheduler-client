@@ -8,6 +8,7 @@ import Welcome from "./pages/Welcome";
 import StudentsPage from "./pages/student/StudentsPage";
 import ApplyRole from "./pages/ApplyRole";
 import { AuthProvider } from "@/components/AuthProvider";
+import CoursesPage from "./pages/course/CoursesPage";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/students",
         element: <StudentsPage />,
+      },
+      {
+        path: "/courses",
+        element: <CoursesPage />,
       },
     ],
   },
